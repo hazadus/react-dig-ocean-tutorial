@@ -10,6 +10,10 @@ class Clock extends React.Component {
     this.state  = {
       date: new Date()
     };
+    // Bootstrap style for Badge should be passed as a parameter
+    // to Clock constructor!
+    this.styling = properties.styling;
+    console.log(properties.styling)
   }
 
   // So called "Lifecycle Methods":
@@ -35,7 +39,7 @@ class Clock extends React.Component {
 
   render() {
     return (
-      <Badge bg="success">{this.state.date.toLocaleTimeString()}</Badge>
+      <Badge bg={this.styling}>{this.state.date.toLocaleTimeString()}</Badge>
     );
   }
 }
@@ -83,6 +87,9 @@ function App() {
           ))
         }
       </ul>
+      <Clock styling="secondary" />
+      <Clock styling="success" />
+      <Clock styling="danger" />
       <Clock />
     </div>
   );
