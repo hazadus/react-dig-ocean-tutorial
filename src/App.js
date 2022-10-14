@@ -5,6 +5,7 @@ import Badge from 'react-bootstrap/Badge';
 import React from 'react';
 import Instructions from './Instructions';
 import Clock from './components/Clock/Clock'
+import ToDo from './components/ToDo/ToDo'
 
 const displayEmojiName = event => alert(event.target.id);
 const emojis = [
@@ -43,7 +44,7 @@ function App() {
         {
           emojis.map(emoji => (
             <li key={emoji.name}>
-              <button onClick={displayEmojiName}>
+              <button className='emojibutton' onClick={displayEmojiName}>
                 <span role="img" aria-label={emoji.name} id={emoji.name}>{emoji.emoji}</span>
               </button>
             </li>
@@ -56,6 +57,7 @@ function App() {
         <Clock styling="danger" />
         <Clock />
       </div>
+      <ToDo />
     </div>
   );
 }
