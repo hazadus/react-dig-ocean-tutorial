@@ -3,46 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 // import { Container } from 'react-bootstrap';
 import Badge from 'react-bootstrap/Badge';
 import React from 'react';
-
-class Clock extends React.Component {
-  constructor(properties) {
-    super(properties);
-    this.state  = {
-      date: new Date()
-    };
-    // Bootstrap style for Badge should be passed as a parameter
-    // to Clock constructor!
-    this.styling = properties.styling;
-    console.log(properties.styling)
-  }
-
-  // So called "Lifecycle Methods":
-  // Called whenever Clock is rendered to the DOM for the first time
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-  // Called when Clock is removed from DOM
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  // Update the time object
-  tick() {
-    this.setState({
-      date: new Date(),
-    });
-  }
-
-  render() {
-    return (
-      <Badge bg={this.styling}>{this.state.date.toLocaleTimeString()}</Badge>
-    );
-  }
-}
+import Instructions from './Instructions';
+import Clock from './components/Clock/Clock'
 
 const displayEmojiName = event => alert(event.target.id);
 const emojis = [
@@ -76,6 +38,7 @@ function App() {
       {displayAction &&
         <p>This is hidden.</p>
       }
+      <Instructions />
       <ul>
         {
           emojis.map(emoji => (
@@ -87,10 +50,12 @@ function App() {
           ))
         }
       </ul>
-      <Clock styling="secondary" />
-      <Clock styling="success" />
-      <Clock styling="danger" />
-      <Clock />
+      <div>
+        <Clock styling="secondary" />
+        <Clock styling="success" />
+        <Clock styling="danger" />
+        <Clock />
+      </div>
     </div>
   );
 }
