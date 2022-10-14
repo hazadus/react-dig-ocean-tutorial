@@ -1,3 +1,5 @@
+// https://www.digitalocean.com/community/tutorials/how-to-set-up-a-react-project-with-create-react-app
+//
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello <strong>React</strong> world!
         </p>
         <a
           className="App-link"
